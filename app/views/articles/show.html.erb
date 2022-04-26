@@ -1,0 +1,41 @@
+<h1><%= @article.title %></h1>
+
+<p><%= @article.body %></p>
+
+<%= render "tag", article: @article%>
+
+<br>
+<br>
+
+<ul>
+  <li><%= link_to "Edit", edit_article_path(@article) %></li>
+  <li><%= link_to "Destroy", article_path(@article), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %></li>
+</ul>
+
+<%#Add prev/next links%>
+<% if @prev%>
+  <%= link_to "<<-- Prev", @prev%>
+  <% end%>
+
+<% if @prev && @next%>
+  <%= "|"%>
+  <% end%>
+
+<% if @next%>
+  <%= link_to "Next -->>", @next%>
+  <% end%>
+
+<br>
+<br>
+
+<%# Add link to index/homepage for easy return w/o 'back' key%>
+<%= render "home"%>
+
+<h2>Comments</h2>
+<%= render @article.comments %>
+
+<h2>Add a comment:</h2>
+<%= render 'comments/form'%>

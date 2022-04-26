@@ -1,0 +1,19 @@
+<small>
+<% if !article.tag_list.none? %>
+    <i>
+    <%= "Tags: " %>
+ 
+    <span margin-top="10px", margin-bottom="10px">
+    <span class="tags">
+        <% article.tag_list.each do |t| %>
+            <%= link_to t, tagged_path(tag: t) %>
+                <% if t != article.tag_list[-1]%>
+                    <%= ", " %>
+                <% end%>
+        <% end%>
+    </span>
+    </span>
+    </i>
+<% end%>
+
+</small>

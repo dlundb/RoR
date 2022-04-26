@@ -1,0 +1,12 @@
+<h1>Showing tag results: </h1>
+
+<h2>Tag selected: 
+    <span style="color:red;">
+    <%= @tag%>
+    </span>
+</h2>
+
+<h2>Articles containing this tag: </h2>
+<%= render "list", article: @articles %>
+
+<%= render "home"%>
