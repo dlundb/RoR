@@ -1,8 +1,7 @@
 <small>
+<i>
+<%= "Tags: " %>
 <% if !article.tag_list.none? %>
-    <i>
-    <%= "Tags: " %>
- 
     <span margin-top="10px", margin-bottom="10px">
     <span class="tags">
         <% article.tag_list.each do |t| %>
@@ -13,7 +12,14 @@
         <% end%>
     </span>
     </span>
-    </i>
-<% end%>
 
+<% else %>
+    <span margin-top="10px", margin-bottom="10px">
+    <span class="tags">
+        <%= "N/A" %>
+    </span>
+    </span>
+
+<% end%>
+</i>
 </small>
